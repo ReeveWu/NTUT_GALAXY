@@ -83,7 +83,7 @@ def handle_message(event):
     elif mtext == "FFQA":
         line_bot_api.reply_message(event.reply_token, TextMessage(text='小到不行'))
 
-    elif event.message.text == "開啟LIFF":
+    elif mtext == '尋找空教室':
         template_message = TemplateSendMessage(
             alt_text='Button Template',
             template=ButtonsTemplate(
@@ -95,10 +95,6 @@ def handle_message(event):
                         uri='https://liff.line.me/1660697653-X5V22KBL'
                     )]))
         line_bot_api.reply_message(event.reply_token, template_message)
-
-
-    elif mtext == '查詢空教室':
-        pass
 
     elif ('查詢星期' in mtext) and ('第' in mtext) and ('節空教室' in mtext):
         if '：' not in mtext:
