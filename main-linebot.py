@@ -3,7 +3,7 @@ app = Flask(__name__)
 
 from flask import request
 from linebot import LineBotApi, WebhookHandler
-from linebot.models import MessageEvent, TextMessage, TextSendMessage, ImageSendMessage, QuickReply, QuickReplyButton, MessageAction, TemplateSendMessage, ButtonsTemplate, MessageTemplateAction, CarouselTemplate, CarouselColumn, PostbackTemplateAction
+from linebot.models import MessageEvent, TextMessage, TextSendMessage, ImageSendMessage, QuickReply, QuickReplyButton, MessageAction, TemplateSendMessage, ButtonsTemplate, MessageTemplateAction, CarouselTemplate, CarouselColumn, PostbackTemplateAction, FlexSendMessage, URIAction, BubbleContainer, URITemplateAction, BoxComponent, TextComponent, ButtonComponent, ImageComponent
 
 line_bot_api = LineBotApi('AK6iyuvwRq2hzSlpiySJbRqDa37Lny5bJhUvAB9z9TXGKs4wv6ixY84PzprtTtSVsxfui0LRbibkEaTjTPHu3p7VDr6cjnQeZtoGXG/VVCdflIoXHSsNycLmhu73k8MDlUIwmR0Mq8+oJqaAwLj0HwdB04t89/1O/w1cDnyilFU=')
 handler = WebhookHandler('ec847bcd30ff4523d230740146fb809c')
@@ -11,7 +11,7 @@ handler = WebhookHandler('ec847bcd30ff4523d230740146fb809c')
 from youbike_api import ubike_search_img
 from Library_go import go_Search_Library, go_Search_Library_img
 from FQA import FQAList, search_ntut_club, search_ntut_club_again
-
+from search_classroom import searchClassroom
 @app.route("/callback", methods=['POST'])
 def callback():
     signature = request.headers['X-Line-Signature']
@@ -21,15 +21,8 @@ def callback():
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
-    # UserId = event.source.user_id
-    # profile = line_bot_api.get_profile(UserId)
-    # print(profile.display_name)
-    # user_id = event.source.user_id
-    # print("user_id =", user_id)
     mtext = event.message.text
     if mtext == "圖書館人流":
-        # line_bot_api.push_message(
-        #     event.source.user_id, TextSendMessage(text='查詢中，請稍等幾秒鐘...'))
         img_link = go_Search_Library_img()
         image_message = ImageSendMessage(original_content_url=img_link,
                                          preview_image_url=img_link)
@@ -37,7 +30,7 @@ def handle_message(event):
             event.reply_token,
             image_message)
 
-    if mtext == "查詢附近Youbike":
+    elif mtext == "查詢附近Youbike":
         img_link = ubike_search_img()
         image_message = ImageSendMessage(original_content_url=img_link,
                                          preview_image_url=img_link)
@@ -89,6 +82,36 @@ def handle_message(event):
 
     elif mtext == "FFQA":
         line_bot_api.reply_message(event.reply_token, TextMessage(text='小到不行'))
+
+    elif event.message.text == "開啟LIFF":
+        template_message = TemplateSendMessage(
+            alt_text='Button Template',
+            template=ButtonsTemplate(
+                title='查詢空教室',
+                text='點擊按鈕輸入查詢時間',
+                actions=[
+                    URITemplateAction(
+                        label='開始查詢',
+                        uri='https://liff.line.me/1660697653-X5V22KBL'
+                    )]))
+        line_bot_api.reply_message(event.reply_token, template_message)
+
+
+    elif mtext == '查詢空教室':
+        pass
+
+    elif ('查詢星期' in mtext) and ('第' in mtext) and ('節空教室' in mtext):
+        if '-' not in mtext:
+            message = searchClassroom(0, mtext)
+            line_bot_api.reply_message(event.reply_token, message)
+        else:
+            classroom_list = searchClassroom(1, mtext)
+            classroom_list.sort()
+            show_str = ''
+            for i in classroom_list:
+                show_str = show_str + i + '\n'
+            line_bot_api.reply_message(event.reply_token, TextMessage(text=show_str))
+
 
 if __name__ == '__main__':
     app.run()
