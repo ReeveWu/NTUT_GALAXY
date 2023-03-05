@@ -101,7 +101,7 @@ def handle_message(event):
         pass
 
     elif ('查詢星期' in mtext) and ('第' in mtext) and ('節空教室' in mtext):
-        if '-' not in mtext:
+        if '：' not in mtext:
             message = searchClassroom(0, mtext)
             line_bot_api.reply_message(event.reply_token, message)
         else:
@@ -110,6 +110,7 @@ def handle_message(event):
             show_str = ''
             for i in classroom_list:
                 show_str = show_str + i + '\n'
+            show_str += '\n*此資訊僅做為參考，空教室亦可能供課程外租借使用，請依實際情況為主！'
             line_bot_api.reply_message(event.reply_token, TextMessage(text=show_str))
 
 

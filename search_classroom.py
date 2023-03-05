@@ -68,7 +68,7 @@ def searchClassroom(state, mtext):
                 else:
                     a = list(set(a) & set(all_class[i + 1]))
         return_list = []
-        mtext = mtext.split('-')[-1]
+        mtext = mtext.split('：')[-1]
         if mtext == '土木/化學/化工/設計':
             for detail in a:
                 if ('土木' in detail) or ('化學' in detail) or ('化工' in detail) or ('設計' in detail):

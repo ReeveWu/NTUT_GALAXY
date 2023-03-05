@@ -25,7 +25,7 @@ def generateQuickReplyButton2(mtext, class_set):
                 quick_reply=QuickReply(
                     items=[
                         QuickReplyButton(
-                            action=MessageAction(label=class_set[0], text=f'{mtext}\n-{class_set[0]}')
+                            action=MessageAction(label=class_set[0], text=f'{mtext}\n：{class_set[0]}')
                         )]
             ))
         return message
@@ -35,10 +35,10 @@ def generateQuickReplyButton2(mtext, class_set):
                 quick_reply=QuickReply(
                     items=[
                         QuickReplyButton(
-                            action=MessageAction(label=class_set[0], text=f'{mtext}\n-{class_set[0]}')
+                            action=MessageAction(label=class_set[0], text=f'{mtext}\n：{class_set[0]}')
                         ),
                         QuickReplyButton(
-                            action=MessageAction(label=class_set[1], text=f'{mtext}\n-{class_set[1]}')
+                            action=MessageAction(label=class_set[1], text=f'{mtext}\n：{class_set[1]}')
                         )
                     ]
             ))
@@ -49,13 +49,13 @@ def generateQuickReplyButton2(mtext, class_set):
                 quick_reply=QuickReply(
                     items=[
                         QuickReplyButton(
-                            action=MessageAction(label=class_set[0], text=f'{mtext}\n-{class_set[0]}')
+                            action=MessageAction(label=class_set[0], text=f'{mtext}\n：{class_set[0]}')
                         ),
                         QuickReplyButton(
-                            action=MessageAction(label=class_set[1], text=f'{mtext}\n-{class_set[1]}')
+                            action=MessageAction(label=class_set[1], text=f'{mtext}\n：{class_set[1]}')
                         ),
                         QuickReplyButton(
-                            action=MessageAction(label=class_set[2], text=f'{mtext}\n-{class_set[2]}')
+                            action=MessageAction(label=class_set[2], text=f'{mtext}\n：{class_set[2]}')
                         )
                     ]
             ))
@@ -66,16 +66,16 @@ def generateQuickReplyButton2(mtext, class_set):
                 quick_reply=QuickReply(
                     items=[
                         QuickReplyButton(
-                            action=MessageAction(label=class_set[0], text=f'{mtext}\n-{class_set[0]}')
+                            action=MessageAction(label=class_set[0], text=f'{mtext}\n：{class_set[0]}')
                         ),
                         QuickReplyButton(
-                            action=MessageAction(label=class_set[1], text=f'{mtext}\n-{class_set[1]}')
+                            action=MessageAction(label=class_set[1], text=f'{mtext}\n：{class_set[1]}')
                         ),
                         QuickReplyButton(
-                            action=MessageAction(label=class_set[2], text=f'{mtext}\n-{class_set[2]}')
+                            action=MessageAction(label=class_set[2], text=f'{mtext}\n：{class_set[2]}')
                         ),
                         QuickReplyButton(
-                            action=MessageAction(label=class_set[3], text=f'{mtext}\n-{class_set[3]}')
+                            action=MessageAction(label=class_set[3], text=f'{mtext}\n：{class_set[3]}')
                         )
                     ]
             ))
@@ -86,19 +86,19 @@ def generateQuickReplyButton2(mtext, class_set):
                 quick_reply=QuickReply(
                     items=[
                         QuickReplyButton(
-                            action=MessageAction(label=class_set[0], text=f'{mtext}\n-{class_set[0]}')
+                            action=MessageAction(label=class_set[0], text=f'{mtext}\n：{class_set[0]}')
                         ),
                         QuickReplyButton(
-                            action=MessageAction(label=class_set[1], text=f'{mtext}\n-{class_set[1]}')
+                            action=MessageAction(label=class_set[1], text=f'{mtext}\n：{class_set[1]}')
                         ),
                         QuickReplyButton(
-                            action=MessageAction(label=class_set[2], text=f'{mtext}\n-{class_set[2]}')
+                            action=MessageAction(label=class_set[2], text=f'{mtext}\n：{class_set[2]}')
                         ),
                         QuickReplyButton(
-                            action=MessageAction(label=class_set[3], text=f'{mtext}\n-{class_set[3]}')
+                            action=MessageAction(label=class_set[3], text=f'{mtext}\n：{class_set[3]}')
                         ),
                         QuickReplyButton(
-                            action=MessageAction(label=class_set[4], text=f'{mtext}\n-{class_set[4]}')
+                            action=MessageAction(label=class_set[4], text=f'{mtext}\n：{class_set[4]}')
                         )
                     ]
             ))
@@ -109,22 +109,22 @@ def generateQuickReplyButton2(mtext, class_set):
                 quick_reply=QuickReply(
                     items=[
                         QuickReplyButton(
-                            action=MessageAction(label=class_set[0], text=f'{mtext}\n-{class_set[0]}')
+                            action=MessageAction(label=class_set[0], text=f'{mtext}\n：{class_set[0]}')
                         ),
                         QuickReplyButton(
-                            action=MessageAction(label=class_set[1], text=f'{mtext}\n-{class_set[1]}')
+                            action=MessageAction(label=class_set[1], text=f'{mtext}\n：{class_set[1]}')
                         ),
                         QuickReplyButton(
-                            action=MessageAction(label=class_set[2], text=f'{mtext}\n-{class_set[2]}')
+                            action=MessageAction(label=class_set[2], text=f'{mtext}\n：{class_set[2]}')
                         ),
                         QuickReplyButton(
-                            action=MessageAction(label=class_set[3], text=f'{mtext}\n-{class_set[3]}')
+                            action=MessageAction(label=class_set[3], text=f'{mtext}\n：{class_set[3]}')
                         ),
                         QuickReplyButton(
-                            action=MessageAction(label=class_set[4], text=f'{mtext}\n-{class_set[4]}')
+                            action=MessageAction(label=class_set[4], text=f'{mtext}\n：{class_set[4]}')
                         ),
                         QuickReplyButton(
-                            action=MessageAction(label=class_set[5], text=f'{mtext}\n-{class_set[5]}')
+                            action=MessageAction(label=class_set[5], text=f'{mtext}\n：{class_set[5]}')
                         )
                     ]
             ))
@@ -135,25 +135,25 @@ def generateQuickReplyButton2(mtext, class_set):
                 quick_reply=QuickReply(
                     items=[
                         QuickReplyButton(
-                            action=MessageAction(label=class_set[0], text=f'{mtext}\n-{class_set[0]}')
+                            action=MessageAction(label=class_set[0], text=f'{mtext}\n：{class_set[0]}')
                         ),
                         QuickReplyButton(
-                            action=MessageAction(label=class_set[1], text=f'{mtext}\n-{class_set[1]}')
+                            action=MessageAction(label=class_set[1], text=f'{mtext}\n：{class_set[1]}')
                         ),
                         QuickReplyButton(
-                            action=MessageAction(label=class_set[2], text=f'{mtext}\n-{class_set[2]}')
+                            action=MessageAction(label=class_set[2], text=f'{mtext}\n：{class_set[2]}')
                         ),
                         QuickReplyButton(
-                            action=MessageAction(label=class_set[3], text=f'{mtext}\n-{class_set[3]}')
+                            action=MessageAction(label=class_set[3], text=f'{mtext}\n：{class_set[3]}')
                         ),
                         QuickReplyButton(
-                            action=MessageAction(label=class_set[4], text=f'{mtext}\n-{class_set[4]}')
+                            action=MessageAction(label=class_set[4], text=f'{mtext}\n：{class_set[4]}')
                         ),
                         QuickReplyButton(
-                            action=MessageAction(label=class_set[5], text=f'{mtext}\n-{class_set[5]}')
+                            action=MessageAction(label=class_set[5], text=f'{mtext}\n：{class_set[5]}')
                         ),
                         QuickReplyButton(
-                            action=MessageAction(label=class_set[6], text=f'{mtext}\n-{class_set[6]}')
+                            action=MessageAction(label=class_set[6], text=f'{mtext}\n：{class_set[6]}')
                         )
                     ]
             ))
@@ -164,28 +164,28 @@ def generateQuickReplyButton2(mtext, class_set):
                 quick_reply=QuickReply(
                     items=[
                         QuickReplyButton(
-                            action=MessageAction(label=class_set[0], text=f'{mtext}\n-{class_set[0]}')
+                            action=MessageAction(label=class_set[0], text=f'{mtext}\n：{class_set[0]}')
                         ),
                         QuickReplyButton(
-                            action=MessageAction(label=class_set[1], text=f'{mtext}\n-{class_set[1]}')
+                            action=MessageAction(label=class_set[1], text=f'{mtext}\n：{class_set[1]}')
                         ),
                         QuickReplyButton(
-                            action=MessageAction(label=class_set[2], text=f'{mtext}\n-{class_set[2]}')
+                            action=MessageAction(label=class_set[2], text=f'{mtext}\n：{class_set[2]}')
                         ),
                         QuickReplyButton(
-                            action=MessageAction(label=class_set[3], text=f'{mtext}\n-{class_set[3]}')
+                            action=MessageAction(label=class_set[3], text=f'{mtext}\n：{class_set[3]}')
                         ),
                         QuickReplyButton(
-                            action=MessageAction(label=class_set[4], text=f'{mtext}\n-{class_set[4]}')
+                            action=MessageAction(label=class_set[4], text=f'{mtext}\n：{class_set[4]}')
                         ),
                         QuickReplyButton(
-                            action=MessageAction(label=class_set[5], text=f'{mtext}\n-{class_set[5]}')
+                            action=MessageAction(label=class_set[5], text=f'{mtext}\n：{class_set[5]}')
                         ),
                         QuickReplyButton(
-                            action=MessageAction(label=class_set[6], text=f'{mtext}\n-{class_set[6]}')
+                            action=MessageAction(label=class_set[6], text=f'{mtext}\n：{class_set[6]}')
                         ),
                         QuickReplyButton(
-                            action=MessageAction(label=class_set[7], text=f'{mtext}\n-{class_set[7]}')
+                            action=MessageAction(label=class_set[7], text=f'{mtext}\n：{class_set[7]}')
                         )
                     ]
             ))
@@ -196,31 +196,31 @@ def generateQuickReplyButton2(mtext, class_set):
                 quick_reply=QuickReply(
                     items=[
                         QuickReplyButton(
-                            action=MessageAction(label=class_set[0], text=f'{mtext}\n-{class_set[0]}')
+                            action=MessageAction(label=class_set[0], text=f'{mtext}\n：{class_set[0]}')
                         ),
                         QuickReplyButton(
-                            action=MessageAction(label=class_set[1], text=f'{mtext}\n-{class_set[1]}')
+                            action=MessageAction(label=class_set[1], text=f'{mtext}\n：{class_set[1]}')
                         ),
                         QuickReplyButton(
-                            action=MessageAction(label=class_set[2], text=f'{mtext}\n-{class_set[2]}')
+                            action=MessageAction(label=class_set[2], text=f'{mtext}\n：{class_set[2]}')
                         ),
                         QuickReplyButton(
-                            action=MessageAction(label=class_set[3], text=f'{mtext}\n-{class_set[3]}')
+                            action=MessageAction(label=class_set[3], text=f'{mtext}\n：{class_set[3]}')
                         ),
                         QuickReplyButton(
-                            action=MessageAction(label=class_set[4], text=f'{mtext}\n-{class_set[4]}')
+                            action=MessageAction(label=class_set[4], text=f'{mtext}\n：{class_set[4]}')
                         ),
                         QuickReplyButton(
-                            action=MessageAction(label=class_set[5], text=f'{mtext}\n-{class_set[5]}')
+                            action=MessageAction(label=class_set[5], text=f'{mtext}\n：{class_set[5]}')
                         ),
                         QuickReplyButton(
-                            action=MessageAction(label=class_set[6], text=f'{mtext}\n-{class_set[6]}')
+                            action=MessageAction(label=class_set[6], text=f'{mtext}\n：{class_set[6]}')
                         ),
                         QuickReplyButton(
-                            action=MessageAction(label=class_set[7], text=f'{mtext}\n-{class_set[7]}')
+                            action=MessageAction(label=class_set[7], text=f'{mtext}\n：{class_set[7]}')
                         ),
                         QuickReplyButton(
-                            action=MessageAction(label=class_set[8], text=f'{mtext}\n-{class_set[8]}')
+                            action=MessageAction(label=class_set[8], text=f'{mtext}\n：{class_set[8]}')
                         )
                     ]
             ))
@@ -231,34 +231,34 @@ def generateQuickReplyButton2(mtext, class_set):
                 quick_reply=QuickReply(
                     items=[
                         QuickReplyButton(
-                            action=MessageAction(label=class_set[0], text=f'{mtext}\n-{class_set[0]}')
+                            action=MessageAction(label=class_set[0], text=f'{mtext}\n：{class_set[0]}')
                         ),
                         QuickReplyButton(
-                            action=MessageAction(label=class_set[1], text=f'{mtext}\n-{class_set[1]}')
+                            action=MessageAction(label=class_set[1], text=f'{mtext}\n：{class_set[1]}')
                         ),
                         QuickReplyButton(
-                            action=MessageAction(label=class_set[2], text=f'{mtext}\n-{class_set[2]}')
+                            action=MessageAction(label=class_set[2], text=f'{mtext}\n：{class_set[2]}')
                         ),
                         QuickReplyButton(
-                            action=MessageAction(label=class_set[3], text=f'{mtext}\n-{class_set[3]}')
+                            action=MessageAction(label=class_set[3], text=f'{mtext}\n：{class_set[3]}')
                         ),
                         QuickReplyButton(
-                            action=MessageAction(label=class_set[4], text=f'{mtext}\n-{class_set[4]}')
+                            action=MessageAction(label=class_set[4], text=f'{mtext}\n：{class_set[4]}')
                         ),
                         QuickReplyButton(
-                            action=MessageAction(label=class_set[5], text=f'{mtext}\n-{class_set[5]}')
+                            action=MessageAction(label=class_set[5], text=f'{mtext}\n：{class_set[5]}')
                         ),
                         QuickReplyButton(
-                            action=MessageAction(label=class_set[6], text=f'{mtext}\n-{class_set[6]}')
+                            action=MessageAction(label=class_set[6], text=f'{mtext}\n：{class_set[6]}')
                         ),
                         QuickReplyButton(
-                            action=MessageAction(label=class_set[7], text=f'{mtext}\n-{class_set[7]}')
+                            action=MessageAction(label=class_set[7], text=f'{mtext}\n：{class_set[7]}')
                         ),
                         QuickReplyButton(
-                            action=MessageAction(label=class_set[8], text=f'{mtext}\n-{class_set[8]}')
+                            action=MessageAction(label=class_set[8], text=f'{mtext}\n：{class_set[8]}')
                         ),
                         QuickReplyButton(
-                            action=MessageAction(label=class_set[9], text=f'{mtext}\n-{class_set[9]}')
+                            action=MessageAction(label=class_set[9], text=f'{mtext}\n：{class_set[9]}')
                         )
                     ]
             ))
@@ -269,37 +269,37 @@ def generateQuickReplyButton2(mtext, class_set):
                 quick_reply=QuickReply(
                     items=[
                         QuickReplyButton(
-                            action=MessageAction(label=class_set[0], text=f'{mtext}\n-{class_set[0]}')
+                            action=MessageAction(label=class_set[0], text=f'{mtext}\n：{class_set[0]}')
                         ),
                         QuickReplyButton(
-                            action=MessageAction(label=class_set[1], text=f'{mtext}\n-{class_set[1]}')
+                            action=MessageAction(label=class_set[1], text=f'{mtext}\n：{class_set[1]}')
                         ),
                         QuickReplyButton(
-                            action=MessageAction(label=class_set[2], text=f'{mtext}\n-{class_set[2]}')
+                            action=MessageAction(label=class_set[2], text=f'{mtext}\n：{class_set[2]}')
                         ),
                         QuickReplyButton(
-                            action=MessageAction(label=class_set[3], text=f'{mtext}\n-{class_set[3]}')
+                            action=MessageAction(label=class_set[3], text=f'{mtext}\n：{class_set[3]}')
                         ),
                         QuickReplyButton(
-                            action=MessageAction(label=class_set[4], text=f'{mtext}\n-{class_set[4]}')
+                            action=MessageAction(label=class_set[4], text=f'{mtext}\n：{class_set[4]}')
                         ),
                         QuickReplyButton(
-                            action=MessageAction(label=class_set[5], text=f'{mtext}\n-{class_set[5]}')
+                            action=MessageAction(label=class_set[5], text=f'{mtext}\n：{class_set[5]}')
                         ),
                         QuickReplyButton(
-                            action=MessageAction(label=class_set[6], text=f'{mtext}\n-{class_set[6]}')
+                            action=MessageAction(label=class_set[6], text=f'{mtext}\n：{class_set[6]}')
                         ),
                         QuickReplyButton(
-                            action=MessageAction(label=class_set[7], text=f'{mtext}\n-{class_set[7]}')
+                            action=MessageAction(label=class_set[7], text=f'{mtext}\n：{class_set[7]}')
                         ),
                         QuickReplyButton(
-                            action=MessageAction(label=class_set[8], text=f'{mtext}\n-{class_set[8]}')
+                            action=MessageAction(label=class_set[8], text=f'{mtext}\n：{class_set[8]}')
                         ),
                         QuickReplyButton(
-                            action=MessageAction(label=class_set[9], text=f'{mtext}\n-{class_set[9]}')
+                            action=MessageAction(label=class_set[9], text=f'{mtext}\n：{class_set[9]}')
                         ),
                         QuickReplyButton(
-                            action=MessageAction(label=class_set[10], text=f'{mtext}\n-{class_set[10]}')
+                            action=MessageAction(label=class_set[10], text=f'{mtext}\n：{class_set[10]}')
                         )
                     ]
             ))
@@ -310,40 +310,40 @@ def generateQuickReplyButton2(mtext, class_set):
                 quick_reply=QuickReply(
                     items=[
                         QuickReplyButton(
-                            action=MessageAction(label=class_set[0], text=f'{mtext}\n-{class_set[0]}')
+                            action=MessageAction(label=class_set[0], text=f'{mtext}\n：{class_set[0]}')
                         ),
                         QuickReplyButton(
-                            action=MessageAction(label=class_set[1], text=f'{mtext}\n-{class_set[1]}')
+                            action=MessageAction(label=class_set[1], text=f'{mtext}\n：{class_set[1]}')
                         ),
                         QuickReplyButton(
-                            action=MessageAction(label=class_set[2], text=f'{mtext}\n-{class_set[2]}')
+                            action=MessageAction(label=class_set[2], text=f'{mtext}\n：{class_set[2]}')
                         ),
                         QuickReplyButton(
-                            action=MessageAction(label=class_set[3], text=f'{mtext}\n-{class_set[3]}')
+                            action=MessageAction(label=class_set[3], text=f'{mtext}\n：{class_set[3]}')
                         ),
                         QuickReplyButton(
-                            action=MessageAction(label=class_set[4], text=f'{mtext}\n-{class_set[4]}')
+                            action=MessageAction(label=class_set[4], text=f'{mtext}\n：{class_set[4]}')
                         ),
                         QuickReplyButton(
-                            action=MessageAction(label=class_set[5], text=f'{mtext}\n-{class_set[5]}')
+                            action=MessageAction(label=class_set[5], text=f'{mtext}\n：{class_set[5]}')
                         ),
                         QuickReplyButton(
-                            action=MessageAction(label=class_set[6], text=f'{mtext}\n-{class_set[6]}')
+                            action=MessageAction(label=class_set[6], text=f'{mtext}\n：{class_set[6]}')
                         ),
                         QuickReplyButton(
-                            action=MessageAction(label=class_set[7], text=f'{mtext}\n-{class_set[7]}')
+                            action=MessageAction(label=class_set[7], text=f'{mtext}\n：{class_set[7]}')
                         ),
                         QuickReplyButton(
-                            action=MessageAction(label=class_set[8], text=f'{mtext}\n-{class_set[8]}')
+                            action=MessageAction(label=class_set[8], text=f'{mtext}\n：{class_set[8]}')
                         ),
                         QuickReplyButton(
-                            action=MessageAction(label=class_set[9], text=f'{mtext}\n-{class_set[9]}')
+                            action=MessageAction(label=class_set[9], text=f'{mtext}\n：{class_set[9]}')
                         ),
                         QuickReplyButton(
-                            action=MessageAction(label=class_set[10], text=f'{mtext}\n-{class_set[10]}')
+                            action=MessageAction(label=class_set[10], text=f'{mtext}\n：{class_set[10]}')
                         ),
                         QuickReplyButton(
-                            action=MessageAction(label=class_set[11], text=f'{mtext}\n-{class_set[11]}')
+                            action=MessageAction(label=class_set[11], text=f'{mtext}\n：{class_set[11]}')
                         )
                     ]
             ))
@@ -354,43 +354,43 @@ def generateQuickReplyButton2(mtext, class_set):
                 quick_reply=QuickReply(
                     items=[
                         QuickReplyButton(
-                            action=MessageAction(label=class_set[0], text=f'{mtext}\n-{class_set[0]}')
+                            action=MessageAction(label=class_set[0], text=f'{mtext}\n：{class_set[0]}')
                         ),
                         QuickReplyButton(
-                            action=MessageAction(label=class_set[1], text=f'{mtext}\n-{class_set[1]}')
+                            action=MessageAction(label=class_set[1], text=f'{mtext}\n：{class_set[1]}')
                         ),
                         QuickReplyButton(
-                            action=MessageAction(label=class_set[2], text=f'{mtext}\n-{class_set[2]}')
+                            action=MessageAction(label=class_set[2], text=f'{mtext}\n：{class_set[2]}')
                         ),
                         QuickReplyButton(
-                            action=MessageAction(label=class_set[3], text=f'{mtext}\n-{class_set[3]}')
+                            action=MessageAction(label=class_set[3], text=f'{mtext}\n：{class_set[3]}')
                         ),
                         QuickReplyButton(
-                            action=MessageAction(label=class_set[4], text=f'{mtext}\n-{class_set[4]}')
+                            action=MessageAction(label=class_set[4], text=f'{mtext}\n：{class_set[4]}')
                         ),
                         QuickReplyButton(
-                            action=MessageAction(label=class_set[5], text=f'{mtext}\n-{class_set[5]}')
+                            action=MessageAction(label=class_set[5], text=f'{mtext}\n：{class_set[5]}')
                         ),
                         QuickReplyButton(
-                            action=MessageAction(label=class_set[6], text=f'{mtext}\n-{class_set[6]}')
+                            action=MessageAction(label=class_set[6], text=f'{mtext}\n：{class_set[6]}')
                         ),
                         QuickReplyButton(
-                            action=MessageAction(label=class_set[7], text=f'{mtext}\n-{class_set[7]}')
+                            action=MessageAction(label=class_set[7], text=f'{mtext}\n：{class_set[7]}')
                         ),
                         QuickReplyButton(
-                            action=MessageAction(label=class_set[8], text=f'{mtext}\n-{class_set[8]}')
+                            action=MessageAction(label=class_set[8], text=f'{mtext}\n：{class_set[8]}')
                         ),
                         QuickReplyButton(
-                            action=MessageAction(label=class_set[9], text=f'{mtext}\n-{class_set[9]}')
+                            action=MessageAction(label=class_set[9], text=f'{mtext}\n：{class_set[9]}')
                         ),
                         QuickReplyButton(
-                            action=MessageAction(label=class_set[10], text=f'{mtext}\n-{class_set[10]}')
+                            action=MessageAction(label=class_set[10], text=f'{mtext}\n：{class_set[10]}')
                         ),
                         QuickReplyButton(
-                            action=MessageAction(label=class_set[11], text=f'{mtext}\n-{class_set[11]}')
+                            action=MessageAction(label=class_set[11], text=f'{mtext}\n：{class_set[11]}')
                         ),
                         QuickReplyButton(
-                            action=MessageAction(label=class_set[12], text=f'{mtext}\n-{class_set[12]}')
+                            action=MessageAction(label=class_set[12], text=f'{mtext}\n：{class_set[12]}')
                         )
                     ]
             ))
