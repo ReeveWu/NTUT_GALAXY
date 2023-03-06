@@ -106,9 +106,24 @@ def handle_message(event):
             show_str = ''
             for i in classroom_list:
                 show_str = show_str + i + '\n'
-            show_str += '\n*此資訊僅做為參考，空教室亦可能供課程外租借使用，請依實際情況為主！'
-            line_bot_api.reply_message(event.reply_token, TextMessage(text=show_str))
+            show_str = show_str.rstrip('\n')
+            line_bot_api.reply_message(event.reply_token, [TextMessage(text='以下是查詢時間內的空教室：'),
+                                                           TextMessage(text=show_str),
+                                                           TextMessage(text='此資訊僅做為參考，空教室亦可能供課程外租借使用，請依實際情況為主！')])
 
+    elif mtext == '其他資訊':
+        message = TextSendMessage(
+            text='點擊選項查看資訊',
+            quick_reply=QuickReply(
+                items=[
+                    QuickReplyButton(
+                        action=MessageAction(label="使用手冊", text="使用手冊")
+                    ),
+                    QuickReplyButton(
+                        action=MessageAction(label="關於我們", text="關於我們")
+                    )
+                ]))
+        line_bot_api.reply_message(event.reply_token, message)
 
 if __name__ == '__main__':
     app.run()
