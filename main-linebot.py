@@ -12,6 +12,7 @@ from youbike_api import ubike_search_img
 from Library_go import go_Search_Library, go_Search_Library_img
 from FQA import FQAList, search_ntut_club, search_ntut_club_again
 from search_classroom import searchClassroom
+
 @app.route("/callback", methods=['POST'])
 def callback():
     signature = request.headers['X-Line-Signature']
@@ -19,24 +20,49 @@ def callback():
     handler.handle(body, signature)
     return 'OK'
 
+ubike_state = False
+library_state = False
+
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
     mtext = event.message.text
     if mtext == "圖書館人流":
+        global library_state
+        library_state = True
+        message = TextSendMessage(
+            text='點擊按鈕開始查詢',
+            quick_reply=QuickReply(
+                items=[
+                QuickReplyButton(
+                    action=MessageAction(label="開始查詢(需幾秒鐘的時間)", text="載入圖書館人流即時資訊")
+                )]
+            ))
+        line_bot_api.reply_message(event.reply_token, message)
+    elif mtext == "載入圖書館人流即時資訊" and library_state:
+        library_state = False
         img_link = go_Search_Library_img()
         image_message = ImageSendMessage(original_content_url=img_link,
                                          preview_image_url=img_link)
-        line_bot_api.reply_message(
-            event.reply_token,
-            image_message)
+        line_bot_api.reply_message(event.reply_token, image_message)
 
     elif mtext == "查詢附近Youbike":
+        global ubike_state
+        ubike_state = True
+        message = TextSendMessage(
+            text='點擊按鈕開始查詢',
+            quick_reply=QuickReply(
+                items=[
+                    QuickReplyButton(
+                        action=MessageAction(label="開始查詢(需幾秒鐘的時間)", text="載入Youbike即時資訊")
+                    )]
+                ))
+        line_bot_api.reply_message(event.reply_token, message)
+    elif mtext == "載入Youbike即時資訊" and ubike_state:
+        ubike_state = False
         img_link = ubike_search_img()
         image_message = ImageSendMessage(original_content_url=img_link,
                                          preview_image_url=img_link)
-        line_bot_api.reply_message(
-            event.reply_token,
-            image_message)
+        line_bot_api.reply_message(event.reply_token, image_message)
 
     elif mtext == '常見問題':
         message = FQAList()
