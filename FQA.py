@@ -23,9 +23,6 @@ def FQAList():
                     action=MessageAction(label="行事曆", text="行事曆")
                 ),
                 QuickReplyButton(
-                    action=MessageAction(label="當學期重要日程", text="當學期重要日程")
-                ),
-                QuickReplyButton(
                     action=MessageAction(label="校園地圖", text="校園地圖")
                 ),
                 QuickReplyButton(

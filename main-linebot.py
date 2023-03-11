@@ -136,8 +136,8 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token, FlexSendMessage('profile', FlexMessage))
 
     elif mtext == '當學期重要日程':
-        image_message = ImageSendMessage(original_content_url='https://imgur.com/K3Y3F9o.png',
-                                         preview_image_url='https://imgur.com/K3Y3F9o.png')
+        image_message = ImageSendMessage(original_content_url='https://imgur.com/uv3zAia.png',
+                                         preview_image_url='https://imgur.com/uv3zAia.png')
         message = TextSendMessage(
             text='點擊下方按鈕可開啟Line通知',
             quick_reply=QuickReply(
@@ -148,7 +148,7 @@ def handle_message(event):
             ))
         line_bot_api.reply_message(event.reply_token, [image_message, message])
 
-    elif mtext == '當學期重要日程':
+    elif mtext == '開啟重要日程通知':
         line_bot_api.reply_message(event.reply_token, TextSendMessage('Not yet'))
 
     elif mtext == '畢業學分與英文畢業門檻':

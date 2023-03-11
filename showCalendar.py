@@ -94,6 +94,9 @@ def kw_calendar(mtext):
                 items=[
                     QuickReplyButton(
                         action=MessageAction(label="查詢其他日程", text="查詢日程")
+                    ),
+                    QuickReplyButton(
+                        action=MessageAction(label="關閉查詢", text="關閉查詢")
                     )]
             ))
         return [FlexSendMessage('profile', FlexMessage), message]
@@ -104,7 +107,11 @@ def kw_calendar(mtext):
                 items=[
                     QuickReplyButton(
                         action=MessageAction(label="查詢其他日程", text="查詢日程")
-                    )]
+                    ),
+                    QuickReplyButton(
+                        action=MessageAction(label="關閉查詢", text="關閉查詢")
+                    )
+                ]
             ))
         return message
 print()
