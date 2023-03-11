@@ -1,5 +1,4 @@
 import json
-from generateQuickReplyButton import generateQuickReplyButton2
 from linebot.models import MessageEvent, TextMessage, TextSendMessage, ImageSendMessage, QuickReply, QuickReplyButton, MessageAction, TemplateSendMessage, ButtonsTemplate, MessageTemplateAction, CarouselTemplate, CarouselColumn, PostbackTemplateAction
 
 def generateQuickReplyButton(mtext, class_set):

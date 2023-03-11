@@ -8,7 +8,7 @@ from linebot.models import MessageEvent, TextMessage, TextSendMessage, ImageSend
 line_bot_api = LineBotApi('AK6iyuvwRq2hzSlpiySJbRqDa37Lny5bJhUvAB9z9TXGKs4wv6ixY84PzprtTtSVsxfui0LRbibkEaTjTPHu3p7VDr6cjnQeZtoGXG/VVCdflIoXHSsNycLmhu73k8MDlUIwmR0Mq8+oJqaAwLj0HwdB04t89/1O/w1cDnyilFU=')
 handler = WebhookHandler('ec847bcd30ff4523d230740146fb809c')
 
-from showCalendar import search_calendar
+from showCalendar import search_calendar, kw_calendar
 from youbike_api import ubike_search_img
 from Library_go import go_Search_Library, go_Search_Library_img
 from FQA import FQAList, search_ntut_club, search_ntut_club_again
@@ -32,15 +32,9 @@ def handle_message(event):
     global calendar_state
     if calendar_state:
         calendar_state = False
-        message = TextSendMessage(
-            text="輸入關鍵字",
-            quick_reply=QuickReply(
-                items=[
-                    QuickReplyButton(
-                        action=MessageAction(label="查詢其他日程", text="查詢日程")
-                    )]
-            ))
-        line_bot_api.reply_message(event.reply_token, message)
+        show_cd = kw_calendar(mtext)
+
+        line_bot_api.reply_message(event.reply_token, show_cd)
 
     elif mtext == "圖書館人流":
         global library_state
@@ -142,8 +136,8 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token, FlexSendMessage('profile', FlexMessage))
 
     elif mtext == '當學期重要日程':
-        image_message = ImageSendMessage(original_content_url='https://i.imgur.com/ZME2bWF.jpg',
-                                         preview_image_url='https://i.imgur.com/ZME2bWF.jpg')
+        image_message = ImageSendMessage(original_content_url='https://imgur.com/K3Y3F9o.png',
+                                         preview_image_url='https://imgur.com/K3Y3F9o.png')
         message = TextSendMessage(
             text='點擊下方按鈕可開啟Line通知',
             quick_reply=QuickReply(
@@ -154,7 +148,11 @@ def handle_message(event):
             ))
         line_bot_api.reply_message(event.reply_token, [image_message, message])
 
+    elif mtext == '當學期重要日程':
+        line_bot_api.reply_message(event.reply_token, TextSendMessage('Not yet'))
+
     elif mtext == '畢業學分與英文畢業門檻':
+        # message = graduationInfo()
         image_message = ImageSendMessage(original_content_url='https://i.imgur.com/cAosmrZ.png',
                                          preview_image_url='https://i.imgur.com/cAosmrZ.png')
         line_bot_api.reply_message(event.reply_token, image_message)

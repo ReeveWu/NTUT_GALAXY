@@ -14,10 +14,7 @@ def FQAList():
         quick_reply=QuickReply(
             items=[
                 QuickReplyButton(
-                    action=MessageAction(label="英文畢業門檻", text="英文畢業門檻")
-                ),
-                QuickReplyButton(
-                    action=MessageAction(label="畢業學分", text="畢業學分")
+                    action=MessageAction(label="畢業學分與英文畢業門檻", text="畢業學分與英文畢業門檻")
                 ),
                 QuickReplyButton(
                     action=MessageAction(label="社團資訊", text="社團資訊")
