@@ -1,8 +1,31 @@
 import json
 from generateQuickReplyButton import generateQuickReplyButton2
+from linebot.models import MessageEvent, TextMessage, TextSendMessage, ImageSendMessage, QuickReply, QuickReplyButton, MessageAction, TemplateSendMessage, ButtonsTemplate, MessageTemplateAction, CarouselTemplate, CarouselColumn, PostbackTemplateAction
 
-def generateQuickReplyButton1(mtext, class_set):
-    return generateQuickReplyButton2(mtext, class_set)
+def generateQuickReplyButton(mtext, class_set):
+    roomName = {'億': '億光', '化': '土木/化學/化工/設計', '共': '共同', '一': '一教', '設': '土木/化學/化工/設計',
+                '先': '先鋒', '光': '光華/國百館/紡織/思源講堂', '五': '五教', '六': '六教',
+                '紡': '光華/國百館/紡織/思源講堂', '三': '三教', '二': '二教', '土': '土木/化學/化工/設計',
+                '科': '科研', '思': '光華/國百館/紡織/思源講堂', '國': '光華/國百館/紡織/思源講堂', '綜': '綜科',
+                '四': '四教'}
+    tmp = []
+    class_set = list(class_set)
+    for i in class_set:
+        tmp.append(roomName[i])
+    n = len(set(tmp))
+    class_set = list(set(tmp))
+
+    item = []
+    for i in range(n):
+        item.append(QuickReplyButton(
+            action=MessageAction(label=class_set[i], text=f'{mtext}\n：{class_set[i]}')))
+
+    message = TextSendMessage(
+        text='請選擇下方建築物',
+        quick_reply=QuickReply(
+            items=item))
+
+    return message
 
 def searchClassroom(state, mtext):
     weekList = {'一': 'Mon', '二': 'Tue', '三': 'Wed', '四': 'Thu', '五': 'Fri'}
@@ -38,7 +61,7 @@ def searchClassroom(state, mtext):
         for i in a:
             class_set.append(i[0])
         class_set = set(class_set)
-        return generateQuickReplyButton1(mtext, class_set)
+        return generateQuickReplyButton(mtext, class_set)
     else:
         week = weekList[mtext.split('\n')[0][4]]
         num = list(mtext.split('\n')[0][6:-4])
