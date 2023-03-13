@@ -37,7 +37,7 @@ def ubike_search():
 
     return dict
 
-def ubike_search_img():
+def ubikeInfo_img():
     dict = ubike_search()
     url = "https://imgur.com/FfPf5cJ.png"
     with urllib.request.urlopen(url) as url_response:

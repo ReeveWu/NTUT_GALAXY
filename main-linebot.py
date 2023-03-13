@@ -8,11 +8,11 @@ from linebot.models import MessageEvent, TextMessage, TextSendMessage, ImageSend
 line_bot_api = LineBotApi('AK6iyuvwRq2hzSlpiySJbRqDa37Lny5bJhUvAB9z9TXGKs4wv6ixY84PzprtTtSVsxfui0LRbibkEaTjTPHu3p7VDr6cjnQeZtoGXG/VVCdflIoXHSsNycLmhu73k8MDlUIwmR0Mq8+oJqaAwLj0HwdB04t89/1O/w1cDnyilFU=')
 handler = WebhookHandler('ec847bcd30ff4523d230740146fb809c')
 
-from showCalendar import search_calendar, kw_calendar
-from youbike_api import ubike_search_img
-from Library_go import go_Search_Library, go_Search_Library_img
-from FQA import FQAList, search_ntut_club, search_ntut_club_again
-from search_classroom import searchClassroom
+from FQA import FQAList, clubInfo0, clubInfo1
+from search_calendar import recentCalendarInfo, calendarSearch
+from search_youbike import ubikeInfo_img
+from search_library import libraryInfo_img
+from search_classroom import emptyClassroomInfo
 
 @app.route("/callback", methods=['POST'])
 def callback():
@@ -32,7 +32,7 @@ def handle_message(event):
     global calendar_state
     if calendar_state:
         calendar_state = False
-        show_cd = kw_calendar(mtext)
+        show_cd = calendarSearch(mtext)
 
         line_bot_api.reply_message(event.reply_token, show_cd)
 
@@ -50,7 +50,7 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token, message)
     elif mtext == "載入圖書館人流即時資訊" and library_state:
         library_state = False
-        img_link = go_Search_Library_img()
+        img_link = libraryInfo_img()
         image_message = ImageSendMessage(original_content_url=img_link,
                                          preview_image_url=img_link)
         line_bot_api.reply_message(event.reply_token, image_message)
@@ -69,7 +69,7 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token, message)
     elif mtext == "載入Youbike即時資訊" and ubike_state:
         ubike_state = False
-        img_link = ubike_search_img()
+        img_link = ubikeInfo_img()
         image_message = ImageSendMessage(original_content_url=img_link,
                                          preview_image_url=img_link)
         line_bot_api.reply_message(event.reply_token, image_message)
@@ -92,23 +92,23 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token, message)
 
     elif mtext == "社團資訊":
-        search_ntut_club(event)
+        clubInfo0(event)
     elif mtext == '【選擇】服務性社團列表':
-        search_ntut_club_again(event, '服務性社團')
+        clubInfo1(event, '服務性社團')
     elif mtext == '【選擇】體能性社團列表':
-        search_ntut_club_again(event, '體能性社團')
+        clubInfo1(event, '體能性社團')
     elif mtext == '【選擇】康樂性社團列表':
-        search_ntut_club_again(event, '康樂性社團')
+        clubInfo1(event, '康樂性社團')
     elif mtext == '【選擇】音樂性社團列表':
-        search_ntut_club_again(event, '音樂性社團')
+        clubInfo1(event, '音樂性社團')
     elif mtext == '【選擇】學術性社團列表':
-        search_ntut_club_again(event, '學術性社團')
+        clubInfo1(event, '學術性社團')
     elif mtext == '【選擇】聯誼性社團列表':
-        search_ntut_club_again(event, '聯誼性社團')
+        clubInfo1(event, '聯誼性社團')
     elif mtext == '【選擇】學生自治組織列表':
-        search_ntut_club_again(event, '學生自治組織')
+        clubInfo1(event, '學生自治組織')
     elif mtext == '繼續查看其他社團':
-        search_ntut_club(event)
+        clubInfo0(event)
 
     elif mtext == '行事曆':
         message = TextSendMessage(
@@ -132,7 +132,7 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token, TextSendMessage("請輸入關鍵字"))
 
     elif mtext == '最近日程':
-        FlexMessage = search_calendar()
+        FlexMessage = recentCalendarInfo()
         line_bot_api.reply_message(event.reply_token, FlexSendMessage('profile', FlexMessage))
 
     elif mtext == '當學期重要日程':
@@ -183,10 +183,10 @@ def handle_message(event):
 
     elif ('查詢星期' in mtext) and ('第' in mtext) and ('節空教室' in mtext):
         if '：' not in mtext:
-            message = searchClassroom(0, mtext)
+            message = emptyClassroomInfo(0, mtext)
             line_bot_api.reply_message(event.reply_token, message)
         else:
-            classroom_list = searchClassroom(1, mtext)
+            classroom_list = emptyClassroomInfo(1, mtext)
             classroom_list.sort()
             show_str = '以下是查詢範圍內的空教室：\n\n'
             for i in classroom_list:
@@ -200,6 +200,9 @@ def handle_message(event):
             text='點擊選項查看資訊',
             quick_reply=QuickReply(
                 items=[
+                    QuickReplyButton(
+                        action=MessageAction(label="更改資料", text="更改資料")
+                    ),
                     QuickReplyButton(
                         action=MessageAction(label="使用手冊", text="使用手冊")
                     ),

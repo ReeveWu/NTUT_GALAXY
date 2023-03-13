@@ -65,7 +65,7 @@ def go_Search_Library():
 # a, b = go_Search_Library()
 # print(a)
 # print(b)
-def go_Search_Library_img():
+def libraryInfo_img():
     url = 'https://lib.ntut.edu.tw/mp.asp?mp=100'
 
     headers = {

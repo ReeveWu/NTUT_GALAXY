@@ -26,7 +26,7 @@ def generateQuickReplyButton(mtext, class_set):
 
     return message
 
-def searchClassroom(state, mtext):
+def emptyClassroomInfo(state, mtext):
     weekList = {'一': 'Mon', '二': 'Tue', '三': 'Wed', '四': 'Thu', '五': 'Fri'}
     if state == 0:
         week = weekList[mtext[4]]

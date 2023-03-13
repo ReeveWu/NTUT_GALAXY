@@ -33,7 +33,7 @@ def FQAList():
     )
     return message
 
-def search_ntut_club(event):  #轉盤樣板
+def clubInfo0(event):  #轉盤樣板
     message = TemplateSendMessage(
         alt_text='社團查詢',
         template=CarouselTemplate(
@@ -112,7 +112,7 @@ def search_ntut_club(event):  #轉盤樣板
         )
     line_bot_api.reply_message(event.reply_token,message)
 
-def search_ntut_club_again(event, name):
+def clubInfo1(event, name):
     data = readClub(name)
     message = TextSendMessage(
                 text=data,
