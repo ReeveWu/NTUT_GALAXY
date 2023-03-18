@@ -10,7 +10,7 @@ handler = WebhookHandler('ec847bcd30ff4523d230740146fb809c')
 
 def FQAList():
     message = TextSendMessage(
-        text='請選擇下方問題',
+        text='選擇下方常見問題',
         quick_reply=QuickReply(
             items=[
                 QuickReplyButton(
@@ -118,7 +118,9 @@ def clubInfo1(event, name):
                 text=data,
                 quick_reply=QuickReply(
                 items=[QuickReplyButton(action=MessageAction(label='繼續查看其他社團', text='繼續查看其他社團')
-                        )
+                        ),
+                       QuickReplyButton(action=MessageAction(label='結束查詢', text='結束查詢')
+                                        )
                     ]
                 )
             )

@@ -1,3 +1,5 @@
+import base64
+import requests
 from flask import Flask
 from flask import request
 app = Flask(__name__)
@@ -7,7 +9,7 @@ from linebot.models import (
     MessageEvent, TextMessage,
     TextSendMessage, ImageSendMessage, TemplateSendMessage, FlexSendMessage,
     QuickReply, QuickReplyButton,
-    ButtonsTemplate, MessageAction, URITemplateAction
+    ButtonsTemplate, MessageAction, URITemplateAction, URIAction
 )
 
 line_bot_api = LineBotApi('AK6iyuvwRq2hzSlpiySJbRqDa37Lny5bJhUvAB9z9TXGKs4wv6ixY84PzprtTtSVsxfui0LRbibkEaTjTPHu3p7VDr6cjnQeZtoGXG/VVCdflIoXHSsNycLmhu73k8MDlUIwmR0Mq8+oJqaAwLj0HwdB04t89/1O/w1cDnyilFU=')
@@ -92,7 +94,7 @@ def handle_message(event):
                     )]))
         line_bot_api.reply_message(event.reply_token, template_message)
 
-    elif mtext == '常見問題':
+    elif mtext == '解惑商店':
         message = FQAList()
         line_bot_api.reply_message(event.reply_token, message)
 
@@ -149,7 +151,11 @@ def handle_message(event):
                 items=[
                     QuickReplyButton(
                         action=MessageAction(label="啟用Line Notify通知", text="開啟重要日程通知")
-                    )]
+                    ),
+                    QuickReplyButton(
+                        action=MessageAction(label="下次再說", text="下次再說")
+                    )
+                ]
             ))
         line_bot_api.reply_message(event.reply_token, [image_message, message])
 
@@ -216,6 +222,22 @@ def handle_message(event):
                     )
                 ]))
         line_bot_api.reply_message(event.reply_token, message)
+
+    elif event.message.text == '使用手冊':
+        buttons_template_message = TemplateSendMessage(
+            alt_text='Buttons template',
+            template=ButtonsTemplate(
+                title='使用手冊',
+                text='請點選下方按鈕',
+                actions=[
+                    URIAction(
+                        label='開啟',
+                        uri='https://drive.google.com/uc?export=download&id=1rxd32uerkt7I0xsoXvp6g_60v4v_052s'
+                    )
+                ]
+            )
+        )
+        line_bot_api.reply_message(event.reply_token, buttons_template_message)
 
 
 if __name__ == '__main__':
