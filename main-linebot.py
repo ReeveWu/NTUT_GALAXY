@@ -1,5 +1,3 @@
-import base64
-import requests
 from flask import Flask
 from flask import request
 app = Flask(__name__)
