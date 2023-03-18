@@ -14,6 +14,10 @@ def graduationInfo():
     # class_name = '工程二'
     # school = '四技'
 
+    # student_id = '1092B0038'
+    # class_name = '機械二'
+    # school = '進修部四技'
+
     url = f"https://gnehs.github.io/ntut-course-crawler-node/{student_id[:3]}/standard.json"
     html = requests.get(url)
     lst = []
