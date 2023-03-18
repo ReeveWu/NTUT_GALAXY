@@ -19,6 +19,7 @@ from FQA import FQAList, clubInfo0, clubInfo1
 from search_calendar import recentCalendarInfo, calendarSearch
 from search_youbike import ubikeInfo_img
 from search_library import libraryInfo_img
+from search_graduation import graduationInfo
 from search_classroom import emptyClassroomInfo
 
 @app.route("/callback", methods=['POST'])
@@ -31,6 +32,8 @@ def callback():
 ubike_state = False
 library_state = False
 calendar_state = False
+graduation_state = False
+standard_lst = []
 
 @handler.add(MessageEvent, message=TextMessage)
 def handle_message(event):
@@ -166,7 +169,30 @@ def handle_message(event):
         # message = graduationInfo()
         image_message = ImageSendMessage(original_content_url='https://i.imgur.com/cAosmrZ.png',
                                          preview_image_url='https://i.imgur.com/cAosmrZ.png')
-        line_bot_api.reply_message(event.reply_token, image_message)
+        global standard_lst
+        standard_lst, lst = graduationInfo()
+        if len(lst) > 1:
+            item = []
+            for i in range(len(lst)):
+                item.append(QuickReplyButton(
+                    action=MessageAction(label=standard_lst[i].text.split('\n')[0], text=standard_lst[i].text.split('\n')[0])))
+            message = TextSendMessage(
+                text='請選擇系組',
+                quick_reply=QuickReply(
+                    items=item))
+            line_bot_api.reply_message(event.reply_token, message)
+            global graduation_state
+            graduation_state = True
+        else:
+            line_bot_api.reply_message(event.reply_token, standard_lst)
+
+        # standard_lst.append(image_message)
+
+    elif graduation_state and standard_lst:
+        for data in standard_lst:
+            if mtext in data.text:
+                line_bot_api.reply_message(event.reply_token, data)
+                graduation_state = False
 
     elif mtext == '畢業學分':
         line_bot_api.reply_message(event.reply_token, TextMessage(text='小到不行'))
