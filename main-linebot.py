@@ -75,6 +75,7 @@ def handle_message(event):
                     )]
                 ))
         line_bot_api.reply_message(event.reply_token, message)
+
     elif mtext == "載入Youbike即時資訊" and ubike_state:
         ubike_state = False
         img_link = ubikeInfo_img()
@@ -161,14 +162,13 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token, [image_message, message])
 
     elif mtext == '開啟重要日程通知':
-        line_bot_api.reply_message(event.reply_token, TextSendMessage('Not yet'))
+        line_bot_api.reply_message(event.reply_token, TextSendMessage('https://notify-bot.line.me/oauth/authorize?response_type=code&client_id=iQgYatSYppkaZb4uobXjxS&redirect_uri=https://01b1-2402-7500-4e6-d672-c7e-26c2-f309-5359.jp.ngrok.io&scope=notify&state=NO_STATE'))
 
     elif mtext == '畢業學分與英文畢業門檻':
-        # message = graduationInfo()
         image_message = ImageSendMessage(original_content_url='https://i.imgur.com/cAosmrZ.png',
                                          preview_image_url='https://i.imgur.com/cAosmrZ.png')
         global standard_lst
-        standard_lst, lst = graduationInfo()
+        standard_lst, lst = graduationInfo('1092B0038', '工程三', '四技')
         if len(lst) > 1:
             item = []
             for i in range(len(lst)):
@@ -182,14 +182,16 @@ def handle_message(event):
             global graduation_state
             graduation_state = True
         else:
+            standard_lst.append(image_message)
             line_bot_api.reply_message(event.reply_token, standard_lst)
 
-        # standard_lst.append(image_message)
 
     elif graduation_state and standard_lst:
+        image_message = ImageSendMessage(original_content_url='https://i.imgur.com/cAosmrZ.png',
+                                         preview_image_url='https://i.imgur.com/cAosmrZ.png')
         for data in standard_lst:
             if mtext in data.text:
-                line_bot_api.reply_message(event.reply_token, data)
+                line_bot_api.reply_message(event.reply_token, [data, image_message])
                 graduation_state = False
 
     elif mtext == '畢業學分':

@@ -1,32 +1,59 @@
+import time
 import mysql.connector
+from datetime import datetime
+
+start_time = time.time()
 
 mydb = mysql.connector.connect(
-    host="localhost",
-    user='root',
-    password="ntutgalaxy1092b",
+    host="sql12.freesqldatabase.com",
+    user='sql12607651',
+    password="bFawEBab7c",
     auth_plugin='mysql_native_password',
-    database='userdb'
+    database='sql12607651',
+    charset='utf8'
 )
 
-my_cursor = mydb.cursor()
+"""
+['time_stamp', 'line_id', 'user_name', 'notify_token', 'es', 'dp', 'cl', 'st_id']
+(datetime.datetime(2023, 3, 22, 21, 45, 13), 'line_id', 'vincentdnskj', 'notify', 'es', 'dpwejfoejf', 'cl', 'staefjowjoefo')
+"""
 
-# my_cursor.execute("CREATE DATABASE userdb")
+cursor = mydb.cursor()
+
+# cursor.execute("SELECT * FROM users")
+cursor.execute("SELECT * FROM users WHERE line_id = 'abcdefg'")
+# cursor.execute("SELECT * FROM users WHERE line_id = 'abcdefg' ORDER BY time_stamp DESC")
+
+
+# 獲取欄位名稱
+column_names = [i[0] for i in cursor.description]
+
+# 獲取表格內容
+table_content = cursor.fetchall()
+
+# 顯示欄位名稱
+print(column_names)
+
+
+# 顯示表格內容
+# for row in table_content:
+#     print(row)
+
+date = max(table_content, key=lambda x: x[0])
+print(dict(zip(column_names, list(date))))
 
 # my_cursor.execute("SHOW DATABASES")
-# for db in my_cursor:
+# for db in cursor:
 #     print(db)
 
-# my_cursor.execute("CREATE TABLE users (user_id VARCHAR(255) PRIMARY KEY, name VARCHAR(255), class VARCHAR(255), student_id VARCHAR(255))")
 
-# sqlStuff = "INSERT INTO users (user_id, name, class, student_id) VALUE (%s, %s, %s, %s)"
-# record1 = ('jfr1511546255563325854w56e', "Mary", "經管一", "111570021")
-# my_cursor.execute(sqlStuff, record1)
+# sqlStuff = "INSERT INTO users (time_stamp, line_id, user_name, notify_token, es, dp, cl, st_id) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)"
+# record1 = (datetime(2023, 3, 26, 11, 6, 59), "abcdefg", "吳哲丞", "abcdefg", "五專", "智動科", "智動三", "1092b0006")
+# cursor.execute(sqlStuff, record1)
 # mydb.commit()
-# my_cursor.execute("SELECT * FROM users")
 
-sql = "SELECT * FROM users WHERE class=%s"
-my_cursor.execute(sql, ('經管一',))
+end_time = time.time()
+total_time = end_time - start_time
+print(f"程式執行時間：{total_time} 秒")
 
-my_result = my_cursor.fetchall()
-for data in my_result:
-    print(data)
+print()

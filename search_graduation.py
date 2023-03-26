@@ -1,10 +1,7 @@
 import json
 import requests
 from linebot.models import TextMessage
-def graduationInfo():
-    student_id = '1102B0038'
-    class_name = '智動三'
-    school = '五專'
+def graduationInfo(student_id, class_name, school):
 
     # student_id = '109AB0745'
     # class_name = '資財三乙'
