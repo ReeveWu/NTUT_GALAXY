@@ -21,7 +21,7 @@ mydb = mysql.connector.connect(
 cursor = mydb.cursor()
 
 # cursor.execute("SELECT * FROM users")
-cursor.execute("SELECT * FROM users WHERE line_id = 'abcdefg'")
+cursor.execute("SELECT * FROM users")
 # cursor.execute("SELECT * FROM users WHERE line_id = 'abcdefg' ORDER BY time_stamp DESC")
 
 
@@ -36,11 +36,11 @@ print(column_names)
 
 
 # 顯示表格內容
-# for row in table_content:
-#     print(row)
+for row in table_content:
+    print(row)
 
-date = max(table_content, key=lambda x: x[0])
-print(dict(zip(column_names, list(date))))
+# date = max(table_content, key=lambda x: x[0])
+# print(dict(zip(column_names, list(date))))
 
 # my_cursor.execute("SHOW DATABASES")
 # for db in cursor:

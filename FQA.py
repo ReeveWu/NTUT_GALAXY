@@ -5,8 +5,8 @@ from linebot.exceptions import InvalidSignatureError
 from readJson import readClub
 from linebot.models import MessageEvent, TextMessage, TextSendMessage, ImageSendMessage, QuickReply, QuickReplyButton, MessageAction, TemplateSendMessage, ButtonsTemplate, MessageTemplateAction, CarouselTemplate, CarouselColumn, PostbackTemplateAction
 
-line_bot_api = LineBotApi('AK6iyuvwRq2hzSlpiySJbRqDa37Lny5bJhUvAB9z9TXGKs4wv6ixY84PzprtTtSVsxfui0LRbibkEaTjTPHu3p7VDr6cjnQeZtoGXG/VVCdflIoXHSsNycLmhu73k8MDlUIwmR0Mq8+oJqaAwLj0HwdB04t89/1O/w1cDnyilFU=')
-handler = WebhookHandler('ec847bcd30ff4523d230740146fb809c')
+line_bot_api = LineBotApi('qCdIq5FxMn9ktvMCzGllh8PVrX5yIO9xfEZwP3DOr0WP9hmNOWvZ2zIn4TVvsCmZsxfui0LRbibkEaTjTPHu3p7VDr6cjnQeZtoGXG/VVCd6Wv6kRU2RD9owZRmIGTO3j5JeFsQJDL60NSRzdun/3QdB04t89/1O/w1cDnyilFU=')
+handler = WebhookHandler('43e6d3ced1f72c1e55a6950d94b8f238')
 
 def FQAList():
     message = TextSendMessage(

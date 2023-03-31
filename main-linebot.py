@@ -10,10 +10,11 @@ from linebot.models import (
     ButtonsTemplate, MessageAction, URITemplateAction, URIAction
 )
 
-line_bot_api = LineBotApi('AK6iyuvwRq2hzSlpiySJbRqDa37Lny5bJhUvAB9z9TXGKs4wv6ixY84PzprtTtSVsxfui0LRbibkEaTjTPHu3p7VDr6cjnQeZtoGXG/VVCdflIoXHSsNycLmhu73k8MDlUIwmR0Mq8+oJqaAwLj0HwdB04t89/1O/w1cDnyilFU=')
-handler = WebhookHandler('ec847bcd30ff4523d230740146fb809c')
+line_bot_api = LineBotApi('qCdIq5FxMn9ktvMCzGllh8PVrX5yIO9xfEZwP3DOr0WP9hmNOWvZ2zIn4TVvsCmZsxfui0LRbibkEaTjTPHu3p7VDr6cjnQeZtoGXG/VVCd6Wv6kRU2RD9owZRmIGTO3j5JeFsQJDL60NSRzdun/3QdB04t89/1O/w1cDnyilFU=')
+handler = WebhookHandler('43e6d3ced1f72c1e55a6950d94b8f238')
 
 from FQA import FQAList, clubInfo0, clubInfo1
+from FFQA import FFQAList
 from search_calendar import recentCalendarInfo, calendarSearch
 from search_youbike import ubikeInfo_img
 from search_library import libraryInfo_img
@@ -203,7 +204,82 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token, image_message)
 
     elif mtext == "FFQA":
-        line_bot_api.reply_message(event.reply_token, TextMessage(text='小到不行'))
+        message = FFQAList()
+        line_bot_api.reply_message(event.reply_token, message)
+
+    elif mtext == "校園面積":
+        line_bot_api.reply_message(event.reply_token, TextMessage(text="""
+>>臺北市
+東校區：28,044
+西校區：65,514
+先鋒國際研發大樓：1,969
+林森校區：559
+校長宿舍：451
+        
+>>新北市
+萬里校區：1,531,802
+        
+>>基隆市
+萬里校區：309,146
+        
+>>桃園市
+桃園校區：1,767
+        
+>>總面積：1,939,252(平方公尺)"""))
+    elif mtext == "校史，笑死":
+        line_bot_api.reply_message(event.reply_token, TextMessage(text="""
+1912年 臺灣總督府於臺北廳大加蚋堡大安莊（現址）設立「民政局學務部附屬工業講習所」。\n
+1914年 民政局學務部附屬工業講習所改名「臺灣總督府工業講習所」。\n
+1918年 在原址增設「臺灣總督府工業學校」，專收日籍學生。\n
+1919年 「台灣總督府工業講習所」改名「臺灣公立臺北工業學校」。\n
+1921年 臺灣總督府工業學校改名為「臺北州立臺北第一工業學校」，仍以日籍學生為對象。原臺北工業學校更名為「臺北州立臺北第二工業學校」，以臺籍學生為對象，二者仍在同一校舍上課。\n
+1923年「臺北第一工業學校」及「臺北第二工業學校」合併，改稱為「臺北州立臺北工業學校」。\n
+1929年「臺北州立臺北工業學校」之專修科由三年制改為二年制。\n
+1945年 戰後，臺灣省行政長官公署接辦學校，改名「臺灣省立臺北工業職業學校」。\n
+1948年 改制為專科學校，校名改為「臺灣省立臺北工業專科學校」，初為五年制，招收初中畢業生。\n
+1965年 增設三年制夜間部，修業4年，招收已服兵役或免服兵役之高中及高工畢業生。\n
+1972年 奉教育部推行建教合作之政策，開始與公民營企業機構實施建教合作，主要項目包括代訓人才、協助進修、技術合作與材料試驗等。\n
+1981年 由台灣省政府教育廳改隸教育部，更名為「國立臺北工業專科學校」。\n
+1994年 改制為「國立臺北技術學院」。\n
+1997年 改名「國立臺北科技大學」。\n
+2016年 桃園高級農工職業學校併入該校，成為該校附屬農工，並更名為「國立臺北科技大學附屬桃園農工高級中等學校」（簡稱北科附工）。同年6月，與華夏科技大學和台北商業大學合作，在新北市中和區工專路111號學校大門口對面的圓通寺廟產土地興建學生宿舍，可容納680床，預計2018年7月啟用。\n
+2018年 配合政府政策，預計與包括昔日三大工專（另二校為今虎尾科大、高雄科大）等9所學校重啟五專部，將增設「智慧自動化工程科」招收30名學生。\n
+2022年 位於台北市忠孝東路上的跨領域研究大樓，進駐與麻省理工學院共同打造的都市科技實驗室（City Science Lab），也是台灣首座的都市科技實驗室，除了MIT之外，還有柏克萊加利福尼亞大學、辛辛那提大學..等，五所頂尖美國大學共同進駐的研究中心。"""))
+    elif mtext == "北科的白板是什麼顏色":
+        line_bot_api.reply_message(event.reply_token, TextMessage(text="根據我所搜尋到的資訊，\n國立臺北科技大學的白板可能是白色的。"))
+    elif mtext == "校歌倒過來長怎樣":
+        line_bot_api.reply_message(event.reply_token, TextMessage(text="榮光取爭誠精愛親，\n興肇族民樂康家國。\n躬吾在責務成務開，\n生厚用利上趕頭迎。\n靈且巧既用並腦手，\n精其求技專其欲學。\n鋒前程工子學莘莘，\n重任校吾國建業工。"))
+    elif mtext == "歷任校長":
+        line_bot_api.reply_message(event.reply_token, TextMessage(text="""日治時期
+第一任	  隈本繁吉
+第二任	  矢口玉五郎
+第三任	  吉田佐次郎
+第四任	  高井利五郎
+第五任	  瀧波惣之進
+第六任	  千千岩助太郎
+第七任	  二瓶醇
+
+戰後時期
+第一任	  杜德三
+第二任	  王石安
+第三任	  簡卓堅
+第四任	  顧柏岩
+第五任	  宋希尚
+第六任	  康代光
+第七任	  張丹
+第八任	  趙國華
+第九任	  唐智
+第十任	  張文雄
+第十一任   張天津
+第十二任   李祖添
+第十三任   姚立德
+第十四任   王錫福"""))
+    elif mtext == "校徽":
+        image_message = ImageSendMessage(original_content_url='https://imgur.com/sEG2zGY.jpg',
+                                         preview_image_url='https://imgur.com/sEG2zGY.jpg')
+        line_bot_api.reply_message(event.reply_token, image_message)
+    elif mtext == "校訓":
+        line_bot_api.reply_message(event.reply_token, TextMessage(text="誠：存誠去偽，修己善群\n樸：純潔高尚，謙敬節儉\n精：專研術業，經研求精\n勤：淬厲奮發，努力不懈"))
 
     elif mtext == '尋找空教室':
         template_message = TemplateSendMessage(
