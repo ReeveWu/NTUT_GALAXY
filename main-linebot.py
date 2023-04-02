@@ -13,6 +13,7 @@ from linebot.models import (
 line_bot_api = LineBotApi('qCdIq5FxMn9ktvMCzGllh8PVrX5yIO9xfEZwP3DOr0WP9hmNOWvZ2zIn4TVvsCmZsxfui0LRbibkEaTjTPHu3p7VDr6cjnQeZtoGXG/VVCd6Wv6kRU2RD9owZRmIGTO3j5JeFsQJDL60NSRzdun/3QdB04t89/1O/w1cDnyilFU=')
 handler = WebhookHandler('43e6d3ced1f72c1e55a6950d94b8f238')
 
+from userdb import get_userInfo
 from FQA import FQAList, clubInfo0, clubInfo1
 from FFQA import FFQAList
 from search_calendar import recentCalendarInfo, calendarSearch
@@ -168,8 +169,10 @@ def handle_message(event):
     elif mtext == '畢業學分與英文畢業門檻':
         image_message = ImageSendMessage(original_content_url='https://i.imgur.com/cAosmrZ.png',
                                          preview_image_url='https://i.imgur.com/cAosmrZ.png')
+        user_id = event.source.user_id
+        userInfo = get_userInfo(user_id)
         global standard_lst
-        standard_lst, lst = graduationInfo('1092B0038', '工程三', '四技')
+        standard_lst, lst = graduationInfo(userInfo[0], userInfo[1], userInfo[2])
         if len(lst) > 1:
             item = []
             for i in range(len(lst)):

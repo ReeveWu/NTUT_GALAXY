@@ -35,7 +35,8 @@ def graduationInfo(student_id, class_name, school):
                 lst1.append(key)
                 str = f'{key}\n\n----【{student_id[:3]}年入學】-----\n'
                 for k1, v1 in value['credits'].items():
-                    str = str + f'\n{k1} : {v1}'
+                    if v1 != '0':
+                        str = str + f'\n{k1} : {v1}'
                 str = TextMessage(text=str)
                 lst.append(str)
 
