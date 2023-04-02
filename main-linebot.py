@@ -214,8 +214,7 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token, message)
 
     elif mtext == "校園面積":
-        line_bot_api.reply_message(event.reply_token, TextMessage(text="""
->>臺北市
+        line_bot_api.reply_message(event.reply_token, TextMessage(text=""">>臺北市
 東校區：28,044
 西校區：65,514
 先鋒國際研發大樓：1,969
@@ -233,8 +232,7 @@ def handle_message(event):
         
 >>總面積：1,939,252(平方公尺)"""))
     elif mtext == "校史，笑死":
-        line_bot_api.reply_message(event.reply_token, TextMessage(text="""
-1912年 臺灣總督府於臺北廳大加蚋堡大安莊（現址）設立「民政局學務部附屬工業講習所」。\n
+        line_bot_api.reply_message(event.reply_token, TextMessage(text="""1912年 臺灣總督府於臺北廳大加蚋堡大安莊（現址）設立「民政局學務部附屬工業講習所」。\n
 1914年 民政局學務部附屬工業講習所改名「臺灣總督府工業講習所」。\n
 1918年 在原址增設「臺灣總督府工業學校」，專收日籍學生。\n
 1919年 「台灣總督府工業講習所」改名「臺灣公立臺北工業學校」。\n
