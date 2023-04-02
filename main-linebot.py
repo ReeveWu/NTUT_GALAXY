@@ -167,27 +167,30 @@ def handle_message(event):
         line_bot_api.reply_message(event.reply_token, TextSendMessage('https://notify-bot.line.me/oauth/authorize?response_type=code&client_id=iQgYatSYppkaZb4uobXjxS&redirect_uri=https://01b1-2402-7500-4e6-d672-c7e-26c2-f309-5359.jp.ngrok.io&scope=notify&state=NO_STATE'))
 
     elif mtext == '畢業學分與英文畢業門檻':
-        image_message = ImageSendMessage(original_content_url='https://i.imgur.com/cAosmrZ.png',
-                                         preview_image_url='https://i.imgur.com/cAosmrZ.png')
-        user_id = event.source.user_id
-        userInfo = get_userInfo(user_id)
-        global standard_lst
-        standard_lst, lst = graduationInfo(userInfo[0], userInfo[1], userInfo[2])
-        if len(lst) > 1:
-            item = []
-            for i in range(len(lst)):
-                item.append(QuickReplyButton(
-                    action=MessageAction(label=standard_lst[i].text.split('\n')[0], text=standard_lst[i].text.split('\n')[0])))
-            message = TextSendMessage(
-                text='請選擇系組',
-                quick_reply=QuickReply(
-                    items=item))
-            line_bot_api.reply_message(event.reply_token, message)
-            global graduation_state
-            graduation_state = True
-        else:
-            standard_lst.append(image_message)
-            line_bot_api.reply_message(event.reply_token, standard_lst)
+        try:
+            image_message = ImageSendMessage(original_content_url='https://i.imgur.com/cAosmrZ.png',
+                                             preview_image_url='https://i.imgur.com/cAosmrZ.png')
+            user_id = event.source.user_id
+            userInfo = get_userInfo(user_id)
+            global standard_lst
+            standard_lst, lst = graduationInfo(userInfo[0], userInfo[1], userInfo[2])
+            if len(lst) > 1:
+                item = []
+                for i in range(len(lst)):
+                    item.append(QuickReplyButton(
+                        action=MessageAction(label=standard_lst[i].text.split('\n')[0], text=standard_lst[i].text.split('\n')[0])))
+                message = TextSendMessage(
+                    text='請選擇系組',
+                    quick_reply=QuickReply(
+                        items=item))
+                line_bot_api.reply_message(event.reply_token, message)
+                global graduation_state
+                graduation_state = True
+            else:
+                standard_lst.append(image_message)
+                line_bot_api.reply_message(event.reply_token, standard_lst)
+        except:
+            line_bot_api.reply_message(event.reply_token, TextMessage(text='尚未登錄個人資訊'))
 
 
     elif graduation_state and standard_lst:
