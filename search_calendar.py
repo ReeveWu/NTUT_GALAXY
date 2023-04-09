@@ -6,7 +6,7 @@ from linebot.models import MessageEvent, TextMessage, TextSendMessage, ImageSend
 import datetime
 
 def recentCalendarInfo():
-    with open('.\\upcomingSchedule.json', 'r') as f:
+    with open('upcomingSchedule.json', 'r') as f:
         data = json.load(f)
 
     The_event = []
@@ -47,7 +47,7 @@ def recentCalendarInfo():
 # FlexMessage = search_calendar()
 
 def calendarSearch(mtext):
-    with open('.\\upcomingSchedule.json', 'r') as f:
+    with open('upcomingSchedule.json', 'r') as f:
         data = json.load(f)
 
     The_event = []

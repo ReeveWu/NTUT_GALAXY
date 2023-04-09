@@ -3,20 +3,8 @@ import json
 import requests
 from bs4 import BeautifulSoup
 
-def readSchedule():
-    studentID = '1092B0018'
-    # file = f'.\class_schedule\{studentID.upper()}.json'
-    #
-    # with open(file, 'r') as f:
-    #     data = json.load(f)
-    #
-    # print(data['Wed'])
-    # print(type(data))
-
-# ---------------------------------------------------------------- #
-
 def readClub(clubType):
-    file = f'.\\ntutClub.json'
+    file = f'ntutClub.json'
 
     with open(file, 'r') as f:
         data = json.load(f)
