@@ -149,19 +149,7 @@ def handle_message(event):
     elif mtext == '當學期重要日程':
         image_message = ImageSendMessage(original_content_url='https://imgur.com/uv3zAia.png',
                                          preview_image_url='https://imgur.com/uv3zAia.png')
-        message = TextSendMessage(
-            text='點擊下方按鈕可開啟Line通知',
-            quick_reply=QuickReply(
-                items=[
-                    QuickReplyButton(
-                        action=MessageAction(label="啟用Line Notify通知", text="開啟重要日程通知")
-                    ),
-                    QuickReplyButton(
-                        action=MessageAction(label="下次再說", text="下次再說")
-                    )
-                ]
-            ))
-        line_bot_api.reply_message(event.reply_token, [image_message, message])
+        line_bot_api.reply_message(event.reply_token, image_message)
 
     elif mtext == '開啟重要日程通知':
         line_bot_api.reply_message(event.reply_token, TextSendMessage('https://notify-bot.line.me/oauth/authorize?response_type=code&client_id=iQgYatSYppkaZb4uobXjxS&redirect_uri=https://01b1-2402-7500-4e6-d672-c7e-26c2-f309-5359.jp.ngrok.io&scope=notify&state=NO_STATE'))
@@ -344,7 +332,6 @@ def handle_message(event):
             )
         )
         line_bot_api.reply_message(event.reply_token, buttons_template_message)
-
 
 if __name__ == '__main__':
     app.run()

@@ -1,15 +1,15 @@
 import time
 import mysql.connector
+import pymysql
 from datetime import datetime
 
-mydb = mysql.connector.connect(
-    host="sql12.freesqldatabase.com",
-    user='sql12607651',
-    password="bFawEBab7c",
-    auth_plugin='mysql_native_password',
-    database='sql12607651',
-    charset='utf8'
-)
+hostname = "35.221.251.163"
+username = "root"
+password = "1092b"
+database = "ntut-galaxy-db"
+
+# Connect to the database
+mydb = pymysql.connect(host=hostname, user=username, password=password, db=database, charset='utf8')
 
 def get_userInfo(user_id):
     cursor = mydb.cursor()
