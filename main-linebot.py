@@ -94,7 +94,7 @@ def handle_message(event):
                 actions=[
                     URITemplateAction(
                         label='開始查詢',
-                        uri='https://liff.line.me/1660697653-X5V22KBL'
+                        uri='https://liff.line.me/1660697653-qGMoojYp'
                     )]))
         line_bot_api.reply_message(event.reply_token, template_message)
 
@@ -317,6 +317,22 @@ def handle_message(event):
                 ]))
         line_bot_api.reply_message(event.reply_token, message)
 
+    elif event.message.text == '關於我們':
+        line_bot_api.reply_message(event.reply_token, TextMessage(text="""我們是一個由三位成員組成的團隊，致力於創造更方便的環境，並為使用者提供更好的生活體驗。以下是我們的介紹：
+
+☾團隊分工
+李善得：主要負責LINE Bot之LIFF( LINE Front-end Framework)，以利提供空教室查詢、課程查詢等便捷功能
+
+吳哲丞：主要負責設計主視覺與LINE Bot多數功能像是解惑商店、附近UouBike與圖書館人流。
+
+陳永瑩：主要負責協助LINE Bot所需資訊擷取與設計行事曆、使用資訊等
+
+☾專案連結：
+https://github.com/reeve-zc/NTUT_GALAXY
+
+☾聯絡開發者：
+若於使用過程中遇到問題，可以這樣來找我們。"""))
+
     elif event.message.text == '使用手冊':
         buttons_template_message = TemplateSendMessage(
             alt_text='Buttons template',
@@ -326,7 +342,23 @@ def handle_message(event):
                 actions=[
                     URIAction(
                         label='開啟',
-                        uri='https://drive.google.com/uc?export=download&id=1rxd32uerkt7I0xsoXvp6g_60v4v_052s'
+                        uri='https://drive.google.com/uc?export=download&id=1R20_vOO_CuWOSZR83GBoWLVHY4YxKqHD'
+                    )
+                ]
+            )
+        )
+        line_bot_api.reply_message(event.reply_token, buttons_template_message)
+
+    elif event.message.text == '更改資料':
+        buttons_template_message = TemplateSendMessage(
+            alt_text='Buttons template',
+            template=ButtonsTemplate(
+                title='更改資料',
+                text='請點選下方按鈕',
+                actions=[
+                    URIAction(
+                        label='開啟',
+                        uri='https://liff.line.me/1660697653-RM4QQ9L6'
                     )
                 ]
             )

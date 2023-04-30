@@ -3,10 +3,10 @@ import mysql.connector
 import pymysql
 from datetime import datetime
 
-hostname = "35.221.251.163"
-username = "root"
-password = "1092b"
-database = "ntut-galaxy-db"
+hostname = "server.gems.com.tw"
+username = "vincent"
+password = "qwerty1324"
+database = "NTUT_GALAXY"
 
 # Connect to the database
 mydb = pymysql.connect(host=hostname, user=username, password=password, db=database, charset='utf8')
